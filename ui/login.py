@@ -12,8 +12,8 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 from one_png import img as one  # 引入img变量，赋别名为one
 
-tmp = open('one.png', 'wb')  # 创建临时的文件
 
+tmp = open('one.png', 'wb')  # 创建临时的文件
 tmp.write(base64.b64decode(one))  ##把这个one图片解码出来，写入文件中去。
 tmp.close()
 
@@ -105,6 +105,8 @@ class Ui_Form(object):
         self.retranslateUi(Form)
         QMetaObject.connectSlotsByName(Form)
 
+
+
     def retranslateUi(self, Form):
         _translate = QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "登录"))
@@ -112,4 +114,4 @@ class Ui_Form(object):
         self.loginPswd.setPlaceholderText(_translate("Form", "密码"))
         self.label.setText(_translate("Form", "Login"))
         self.loginButton.setText(_translate("Form", "登录"))
-        self.signinButton.setText(_translate("Form", "注册"))
+        self.signinButton.setText(_translate("Form", "注册/注销"))
