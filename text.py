@@ -239,7 +239,7 @@ class MainWindow(QMainWindow):
 
 
     '''用户注册及注销(需要管理员权限才能登录)'''
-    def signInSuccess(self):
+    def signInWindow(self):
         self.sign = SignWindow()
         # 两个按钮的槽函数
         self.sign.ui.signButton.clicked.connect(self.signinAccept)
@@ -263,7 +263,7 @@ class MainWindow(QMainWindow):
                 QMessageBox.information(self, '欢迎', '管理员,您可以对用户进行注册注销操作', QMessageBox.Yes)
                 self.userId = userId
                 self.passWrd = passWrd
-                self.signInSuccess()
+                self.signInWindow()
 
             elif userState == 'mmt@OK2':
                 QMessageBox.warning(self, '提示', '只有管理员身份才能进入该界面', QMessageBox.Yes)
@@ -289,13 +289,12 @@ class MainWindow(QMainWindow):
             print(siuserState)
             if siuserState == 'zc@OK':
                 QMessageBox.information(self, '提示', '注册成功', QMessageBox.Yes)
-                self.userId = siuserId
-                self.passWrd = sipassWrd
                 self.sign.close()
+
 
             elif siuserState == 'zc@NO':
                 QMessageBox.warning(self, '提示', '注册失败,已经存在该用户', QMessageBox.Yes)
-                self.signInSuccess()
+                self.signInWindow()
                 return
 
     def delUser(self):
@@ -314,7 +313,7 @@ class MainWindow(QMainWindow):
                 self.sign.close()
             elif deluserState == 'del@NO':
                 QMessageBox.warning(self, '提示', '注销失败，请检查是否存在该账户或者密码输入错误', QMessageBox.Yes)
-                self.userSignFunc()
+                self.signInWindow()
                 return
 
   ######################################################################
