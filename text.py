@@ -3,13 +3,9 @@ from PySide2.QtGui import *
 from PySide2.QtCore import *
 
 from ui.mainwindow import Ui_MainWindow
-from ui.login import Ui_Form
-import pygame
-import base64
-from music_mp3 import music as music  # 引入img变量，赋别名为one
+from loginClass import LoginWindow
+from loginClass import SignWindow
 
-
-import Russia
 
 import socket
 import threading
@@ -18,26 +14,6 @@ import numpy as np
 import re
 import sqlite3
 
-tmp = open('music.mp3', 'wb')  # 创建临时的文件
-
-tmp.write(base64.b64decode(music))  ##把这个one图片解码出来，写入文件中去。
-tmp.close()
-class LoginWindow(QWidget):
-
-    def __init__(self):
-        super().__init__()
-        self.ui = Ui_Form()
-        self.ui.setupUi(self)
-        file = r'./music.mp3'  # 音乐的路径
-        pygame.mixer.init()  # 初始化
-        track = pygame.mixer.music.load(file)  # 加载音乐文件
-        pygame.mixer.music.play()  # 开始播放音乐流
-
-        # self.ui.loginButton.setShortcut('enter')
-        # self.ui.loginButton.setShortcut('ctrl+return')
-
-    def loginFunc(self):
-        return {'ID': self.ui.loginID.text()}
 
 
 class MainWindow(QMainWindow):
@@ -49,7 +25,7 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.input = LoginWindow()
-
+        self.a = 0
         self.hostIp = str(localIP())  # 10.128.248.94
         self.hostPort = 1080
         self.userId = ''  #账号
@@ -85,10 +61,9 @@ class MainWindow(QMainWindow):
         self.ui.actionabout.triggered.connect(self.programAbout)
         self.ui.actionhelp.triggered.connect(self.programHelp)
 
-        self.ui.actionstop.triggered.connect(self.myStop)
-        self.ui.actioncontinue.triggered.connect(self.myContinue)
 
-        self.ui.actionrussia.triggered.connect(Russia.main)
+
+
 
 
         # 监听窗口线程
@@ -97,7 +72,6 @@ class MainWindow(QMainWindow):
         self.thr.start()
 
         self.ShortcutSetting()
-
         self.userLoginFunc()
   #初始化数据库======================
     def initSQL(self):
@@ -254,20 +228,7 @@ class MainWindow(QMainWindow):
     #  (end)  快捷键设置------------
 
 
-    # (begin)  old ========
-    def accept(self, object):
-        self.setHostIP(object.ui.loginIP.text())
-        self.setHostPort(object.ui.loginPort.text())
 
-    def childAccept(self):
-        self.accept(self.input)
-        self.show()
-        self.clearToGui(self.input.ui.loginID, '', 'black')
-        self.clearToGui(self.input.ui.loginPswd, '', 'black')
-        # self.child.ui.loginIP.setText()
-        self.input.close()
-
-    #  (end)  old ========
     def showCurrentStatus(self):
         self.statusbarShow('Login ID: ' + str(self.userId) + '    IP:' + str(self.hostIp))
 
@@ -275,78 +236,132 @@ class MainWindow(QMainWindow):
     def statusbarShow(self, string):
         self.ui.statusbar.showMessage(str(string), 0)
 
-    # (begin) 用户登录 ========
+
+
+    '''用户注册及注销(需要管理员权限才能登录)'''
+    def signInSuccess(self):
+        self.sign = SignWindow()
+        # 两个按钮的槽函数
+        self.sign.ui.signButton.clicked.connect(self.signinAccept)
+        self.sign.ui.delButton.clicked.connect(self.delUser)
+        self.sign.show()
+
+    #只有管理员权限才能进入该界面
+    def userSignFunc(self):
+        userId = self.input.ui.loginID.text()
+        passWrd = self.input.ui.loginPswd.text()
+        if len(userId) == 0 or len(passWrd) == 0:  # 如果非法输入
+            QMessageBox.warning(self, '提示', '只有管理员身份才能进入该界面', QMessageBox.Yes)
+            self.userLoginFunc()
+            return
+        else:
+            userInfo = 'mmt@' + userId + ',' + passWrd  # 加入密码头
+            self.seInfoSocket.send(userInfo.encode('gbk'))
+            userState = self.seInfoSocket.recv(7).decode('gbk')
+            print(userState)
+            if userState == 'mmt@OK1':
+                QMessageBox.information(self, '欢迎', '管理员,您可以对用户进行注册注销操作', QMessageBox.Yes)
+                self.userId = userId
+                self.passWrd = passWrd
+                self.signInSuccess()
+
+            elif userState == 'mmt@OK2':
+                QMessageBox.warning(self, '提示', '只有管理员身份才能进入该界面', QMessageBox.Yes)
+                self.userLoginFunc()
+                return
+
+            elif userState == 'mmt@NO':
+                QMessageBox.critical(self, '提示', '请输入正确的账号或密码', QMessageBox.Yes)
+                self.userLoginFunc()
+                return
+
+
+    def signinAccept(self):
+        siuserId, sipassWrd = self.sign.ui.signID.text(), self.sign.ui.signPswd.text() #注册的账号密码
+        if len(siuserId) == 0 or len(sipassWrd) == 0:  # 如果非法输入
+            QMessageBox.warning(self, '提示', '请注册合法账号或密码', QMessageBox.Yes)
+            self.userSignFunc()
+            return
+        else:
+            siuserInfo = 'zc@' + siuserId + ',' + sipassWrd # 加入注册头和绑定本机ip
+            self.seInfoSocket.send(siuserInfo.encode('gbk'))
+            siuserState = self.seInfoSocket.recv(5).decode('gbk')
+            print(siuserState)
+            if siuserState == 'zc@OK':
+                QMessageBox.information(self, '提示', '注册成功', QMessageBox.Yes)
+                self.userId = siuserId
+                self.passWrd = sipassWrd
+                self.sign.close()
+
+            elif siuserState == 'zc@NO':
+                QMessageBox.warning(self, '提示', '注册失败,已经存在该用户', QMessageBox.Yes)
+                self.signInSuccess()
+                return
+
+    def delUser(self):
+        deluserId, delpassWrd = self.sign.ui.signID.text(), self.sign.ui.signPswd.text()  # 注册的账号密码
+        if len(deluserId) == 0 or len(delpassWrd) == 0:  # 如果非法输入
+            QMessageBox.warning(self, '提示', '请输入合法账号或密码', QMessageBox.Yes)
+            self.userSignFunc()
+            return
+        else:
+            deluserInfo = 'del@' + deluserId + ',' + delpassWrd  # 加入注册头和绑定本机ip
+            self.seInfoSocket.send(deluserInfo.encode('gbk'))
+            deluserState = self.seInfoSocket.recv(6).decode('gbk')
+            print(deluserState)
+            if deluserState == 'del@OK':
+                QMessageBox.information(self, '提示', '成功注销用户', QMessageBox.Yes)
+                self.sign.close()
+            elif deluserState == 'del@NO':
+                QMessageBox.warning(self, '提示', '注销失败，请检查是否存在该账户或者密码输入错误', QMessageBox.Yes)
+                self.userSignFunc()
+                return
+
+  ######################################################################
+    '''用户登录认证'''
     def userLoginFunc(self):
         self.input = LoginWindow()
-        self.input.ui.loginPswd.setEchoMode(QLineEdit.Password)#设置掩码模式
-        self.input.ui.loginButton.setShortcut('Enter')#设置快捷键
-        self.input.show()
-       #两个按钮的槽函数
+        self.input.ui.loginPswd.setEchoMode(QLineEdit.Password)  # 设置掩码模式
+        # 两个按钮的槽函数
         self.input.ui.loginButton.clicked.connect(self.loginAccept)
-        self.input.ui.signinButton.clicked.connect(self.signinAccept)
+        self.input.ui.signinButton.clicked.connect(self.userSignFunc)
+        self.input.show()
 
-    def myStop(self):
-        pygame.mixer.init()
-        pygame.mixer.music.pause()
-
-    def myContinue(self):
-        pygame.mixer.init()
-        pygame.mixer.music.unpause()
-
-    #(begin) 用户登录认证========
     def loginAccept(self):
-        userId, passWrd = self.input.ui.loginID.text(), self.input.ui.loginPswd.text()
+        userId = self.input.ui.loginID.text()
+        passWrd = self.input.ui.loginPswd.text()
         if len(userId)==0 or len(passWrd)==0: #如果非法输入
-            self.input.close()
             QMessageBox.warning(self, '提示', '请输入账号或密码', QMessageBox.Yes)
             self.userLoginFunc()
             return
         else:
             userInfo ='mmt@'+userId +','+ passWrd #加入密码头
             self.seInfoSocket.send(userInfo.encode('gbk'))
-            userState = self.seInfoSocket.recv(6).decode('gbk')
+            userState = self.seInfoSocket.recv(7).decode('gbk')
             print(userState)
-            if userState =='mmt@OK'  :
+            if userState =='mmt@OK1'  :
+                QMessageBox.information(self, '欢迎', '您好，管理员', QMessageBox.Yes)
                 self.userId = userId
                 self.passWrd = passWrd
+                self.loginSuccess()
+            elif userState =='mmt@OK2'  :
+                QMessageBox.information(self, '欢迎', '您好， 普通用户', QMessageBox.Yes)
+                self.userId = userId
+                self.passWrd = passWrd
+                self.loginSuccess()
             elif userState == 'mmt@NO':
-                self.input.close()
-                QMessageBox.warning(self, '提示', '请输入正确的账号或密码', QMessageBox.Yes)
+                QMessageBox.critical(self, '提示', '请输入正确的账号或密码', QMessageBox.Yes)
                 self.userLoginFunc()
                 return
-        self.input.close()
-        self.show()
-        self.printToGui(self.ui.textBrowser, '单击左侧列表开启聊天系统，右键打开拓展菜单\n', 'black')
-        self.statusbarShow('Login ID: ' + str(userId) + '    IP:' + str(self.hostIp))#显示当前登录账号及ip
-    #(end)用户登录验证========
 
-    # (begin)用户注册========
-    def signinAccept(self):
-        siuserId, sipassWrd = self.input.ui.loginID.text(), self.input.ui.loginPswd.text() #注册的账号密码
-        if len(siuserId) == 0 or len(sipassWrd) == 0:  # 如果非法输入
-            self.input.close()
-            QMessageBox.warning(self, '提示', '请注册合法账号或密码', QMessageBox.Yes)
-            self.userLoginFunc()
-            return
-        else:
-            siuserInfo = 'zc@' + siuserId + ',' + sipassWrd + ',' + str(self.hostIp) # 加入注册头和绑定本机ip
-            self.seInfoSocket.send(siuserInfo.encode('gbk'))
-            siuserState = self.seInfoSocket.recv(5).decode('gbk')
-            print(siuserState)
-            if siuserState == 'zc@OK':
-                QMessageBox.warning(self, '提示', '注册成功并已经登录', QMessageBox.Yes)
-                self.userId = siuserId
-                self.passWrd = sipassWrd
-            elif siuserState == 'zc@NO':
-                self.input.close()
-                QMessageBox.warning(self, '提示', '注册失败', QMessageBox.Yes)
-                self.userLoginFunc()
-                return
+    def loginSuccess(self):
         self.input.close()
         self.show()
         self.printToGui(self.ui.textBrowser, '单击左侧列表开启聊天系统，右键打开拓展菜单\n', 'black')
-        self.statusbarShow('ID: ' + str(siuserId) + '   IP:' + str(self.hostIp))  # 显示当前登录账号及ip
-    #  (end)  用户注册 ========
+        self.statusbarShow('Login ID: ' + str(self.userId) + '    IP:' + str(self.hostIp))  # 显示当前登录账号及ip
+    ############################################################################
+
+
 
     # (begin) 增加好友功能 ========
     def addFriendFunc(self):
@@ -483,15 +498,11 @@ def localIP():
     return ip_addr[-1]
 
 
-def main():
-    app = QApplication([])
 
-    mainw = MainWindow()
-    mainw.setWindowTitle('QO')
-    # mainw.show()
-
-    app.exec_()
 
 
 if __name__ == '__main__':
-    main()
+    app = QApplication([])
+    mainw = MainWindow()
+    mainw.setWindowTitle('QO')
+    app.exec_()
