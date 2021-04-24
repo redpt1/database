@@ -5,22 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35933b93-a321-44b7-84a3-f4dd0756aefd" name="Default Changelist" comment="Default Changelist">
-      <change afterPath="$PROJECT_DIR$/mainfuction.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/fuction.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/fuction.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loginClass.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/userman.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/userman.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/userManage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/userSocket.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QO.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/expand.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/friend.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haimian_png.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/text.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/text.spec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/mainwindow.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/mainwindow.ui" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/sign.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/sign.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainfuction.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainfuction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/loginClass.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +165,7 @@
       <workItem from="1619002406239" duration="10719000" />
       <workItem from="1619161814330" duration="7602000" />
       <workItem from="1619172161802" duration="13447000" />
-      <workItem from="1619227191495" duration="3359000" />
+      <workItem from="1619227191495" duration="19981000" />
     </task>
     <servers />
   </component>
@@ -198,7 +190,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/QO$main.coverage" NAME="main 覆盖结果" MODIFIED="1618931991693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/QO$text.coverage" NAME="text 覆盖结果" MODIFIED="1618933871794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/database$text.coverage" NAME="mainfuction 覆盖结果" MODIFIED="1619230578841" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/database$text.coverage" NAME="mainfuction 覆盖结果" MODIFIED="1619248088215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/database$main.coverage" NAME="main 覆盖结果" MODIFIED="1619174094409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
