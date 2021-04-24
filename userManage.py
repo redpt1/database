@@ -1,9 +1,5 @@
 # # 用户管理界面（只有管理员权限才能进入）
-import socket
-import sys
-
 from PySide2.QtWidgets import *
-from PySide2.QtGui import *
 from PySide2.QtCore import *
 from ui.userman import Ui_userMan
 import userSocket
@@ -14,7 +10,7 @@ class userInfo(QWidget):
         super().__init__()
         self.ui = Ui_userMan()
         self.ui.setupUi(self)
-        self.serverSocket = userSocket.serverSocket  # 信息传输socket
+        #self.serverSocket = userSocket.serverSocket  # 信息传输socket
         self.seInfoSocket = userSocket.seInfoSocket  # 验证信息端口
         self.getState = ''
         self.message = QWidget()
