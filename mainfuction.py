@@ -5,9 +5,11 @@ from PySide2.QtCore import *
 from loginClass import LoginWindow
 from loginClass import SignWindow
 from ui.fuction import Ui_fuction
+from userManage import userInfo
 
 import socket
 import sys
+import userSocket
 
 
 
@@ -24,19 +26,19 @@ class MainWindow(QMainWindow):
         self.authstr = ''
         self.userId = ''  #账号
         self.passWrd= ''  #密码
-        self.serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # 信息传输socket
-        self.seInfoSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #验证信息端口
-
+        self.serverSocket = userSocket.serverSocket# 信息传输socket
+        self.seInfoSocket = userSocket.seInfoSocket#验证信息端口
+        self.userinfo = userInfo()
 
 
         # 信号与槽
         self.ui.actionexit.triggered.connect(self.systemQuitFunc)
         self.ui.actionabout.triggered.connect(self.programAbout)
         self.ui.actionhelp.triggered.connect(self.programHelp)
+        self.ui.userManButton.clicked.connect(self.usermanage)
 
         self.socketCheck()
         self.userLoginFunc()
-
 
     def socketCheck(self):
         try:
@@ -46,6 +48,7 @@ class MainWindow(QMainWindow):
         except socket.error as e:
             QMessageBox.warning(self, '警告', '请检测网络连接', QMessageBox.Yes)
             sys.exit(0)
+
 
 
     def programHelp(self):
@@ -85,7 +88,6 @@ class MainWindow(QMainWindow):
             if QEvent.tip() == "":
                 QEvent = QStatusTipEvent('用户名: ' + str(self.userId) + '    权限: ' + self.authstr)  # 此处为要始终显示的内容
         return super().event(QEvent)
-
 
 
     '''用户注册及注销(需要管理员权限才能登录)'''
@@ -212,8 +214,14 @@ class MainWindow(QMainWindow):
 
 
     ############################################################################
-
-
+        # 用户管理操作
+    def usermanage(self):
+        if self.auth == 1 :
+            self.userinfo=userInfo()
+            self.userinfo.show()
+            self.userinfo.getuserInfo()
+        else :
+            QMessageBox.warning(self, '提示', '只有管理员身份才能进入该界面', QMessageBox.Yes)
 
 
 

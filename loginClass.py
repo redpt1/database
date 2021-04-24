@@ -12,8 +12,6 @@ class LoginWindow(QWidget):
         self.ui.setupUi(self)
 
 
-    def loginFunc(self):
-        return {'ID': self.ui.loginID.text()}
 
 class SignWindow(QWidget):
     def __init__(self):
