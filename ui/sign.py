@@ -22,7 +22,7 @@ class Ui_sign(object):
         if not sign.objectName():
             sign.setObjectName(u"sign")
         sign.setWindowModality(Qt.NonModal)
-        sign.setWindowFlags(Qt.FramelessWindowHint)
+        #sign.setWindowFlags(Qt.FramelessWindowHint)
         sign.setEnabled(True)
         sign.resize(600, 500)
         sign.setContextMenuPolicy(Qt.NoContextMenu)
