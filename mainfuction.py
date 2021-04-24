@@ -26,8 +26,8 @@ class MainWindow(QMainWindow):
         self.authstr = ''
         self.userId = ''  #账号
         self.passWrd= ''  #密码
-        self.serverSocket = userSocket.serverSocket# 信息传输socket
-        self.seInfoSocket = userSocket.seInfoSocket#验证信息端口
+        #self.serverSocket = userSocket.serverSocket #信息传输socket
+        self.seInfoSocket = userSocket.seInfoSocket #验证信息端口
         self.userinfo = userInfo()
 
 
@@ -42,7 +42,7 @@ class MainWindow(QMainWindow):
 
     def socketCheck(self):
         try:
-            self.serverSocket.connect(('10.128.246.121', 1081))
+            #self.serverSocket.connect(('10.128.246.121', 1081))
             self.seInfoSocket.connect(('10.128.246.121', 1082))
             return True
         except socket.error as e:
