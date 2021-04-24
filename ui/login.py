@@ -21,7 +21,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.setWindowModality(Qt.NonModal)
-        Form.setWindowFlags(Qt.FramelessWindowHint)
+        #Form.setWindowFlags(Qt.FramelessWindowHint)
         Form.setEnabled(True)
         Form.resize(600, 500)
         Form.setContextMenuPolicy(Qt.NoContextMenu)
