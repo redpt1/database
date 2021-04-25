@@ -7,6 +7,8 @@ from loginClass import SignWindow
 from ui.fuction import Ui_fuction
 from userManage import userInfo
 from dataManage import dataManage
+from SYSManage import SYSManage
+
 
 import socket
 import sys
@@ -28,12 +30,17 @@ class MainWindow(QMainWindow):
         self.userinfo = userInfo()
         self.dataman = dataManage()
 
+        self.sysman = SYSManage()
+
+
         # 信号与槽
         self.ui.actionexit.triggered.connect(self.systemQuitFunc)
         self.ui.actionabout.triggered.connect(self.programAbout)
         self.ui.actionhelp.triggered.connect(self.programHelp)
         self.ui.userManButton.clicked.connect(self.usermanage)
         self.ui.dataManButton.clicked.connect(self.datamanage)
+
+        self.ui.sysManButton.clicked.connect(self.sysmanshow)
 
         self.socketCheck()
         self.userLoginFunc()
@@ -47,7 +54,17 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, '警告', '请检测网络连接', QMessageBox.Yes)
             sys.exit(0)
 
-
+    #数据管理
+    def sysmanshow(self):
+        if self.auth == 1:
+            self.sysman.show()
+        elif self.auth == 0:
+            QMessageBox.warning(
+                self,
+                '提示',
+                '只有管理员身份才能进入该界面',
+                QMessageBox.Yes, QMessageBox.Yes
+            )
 
     def programHelp(self):
          QMessageBox.information(

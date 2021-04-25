@@ -165,7 +165,7 @@ class Ui_userMan(object):
     # setupUi
 
     def retranslateUi(self, userMan):
-        userMan.setWindowTitle(QCoreApplication.translate("userMan", u"\u767b\u5f55", None))
+        userMan.setWindowTitle(QCoreApplication.translate("userMan", u"用户信息", None))
         self.adduserButton.setText(QCoreApplication.translate("userMan", u"\u6dfb\u52a0", None))
         self.deluserButton.setText(QCoreApplication.translate("userMan", u"\u5220\u9664", None))
         self.changeauthButton.setText(QCoreApplication.translate("userMan", u"\u4fee\u6539", None))

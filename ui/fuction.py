@@ -126,7 +126,7 @@ class Ui_fuction(object):
 
         self.label = QLabel(self.frame)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(280, 20, 151, 61))
+        self.label.setGeometry(QRect(270, 20, 151, 61))
         self.label.setFont(font)
         self.label.setStyleSheet(u"color:#fff;\n"
 "background:transparent;\n"
