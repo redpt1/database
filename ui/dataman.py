@@ -180,7 +180,7 @@ class Ui_dataMan(object):
     # setupUi
 
     def retranslateUi(self, dataMan):
-        dataMan.setWindowTitle(QCoreApplication.translate("dataMan", u"\u767b\u5f55", None))
+        dataMan.setWindowTitle(QCoreApplication.translate("dataMan", u"数据管理", None))
         self.label_3.setText(QCoreApplication.translate("dataMan", u"\u6570\u636e\u7ba1\u7406", None))
         self.label.setText(QCoreApplication.translate("dataMan", u"\u6570\u636e\u5bfc\u5165", None))
         self.dataIn.setItemText(0, QCoreApplication.translate("dataMan", u"\u7f51\u7edc\u914d\u7f6e\u5bfc\u5165", None))
