@@ -6,16 +6,13 @@ from loginClass import LoginWindow
 from loginClass import SignWindow
 from ui.fuction import Ui_fuction
 from userManage import userInfo
+from dataManage import dataManage
 
 import socket
 import sys
 import userSocket
 
-
-
 class MainWindow(QMainWindow):
-    textSendSignal = Signal(QPushButton, str, QColor)
-    textClearSignal = Signal(QPushButton, str, QColor)
 
     def __init__(self):
         super().__init__()
@@ -29,13 +26,14 @@ class MainWindow(QMainWindow):
         #self.serverSocket = userSocket.serverSocket #信息传输socket
         self.seInfoSocket = userSocket.seInfoSocket #验证信息端口
         self.userinfo = userInfo()
-
+        self.dataman = dataManage()
 
         # 信号与槽
         self.ui.actionexit.triggered.connect(self.systemQuitFunc)
         self.ui.actionabout.triggered.connect(self.programAbout)
         self.ui.actionhelp.triggered.connect(self.programHelp)
         self.ui.userManButton.clicked.connect(self.usermanage)
+        self.ui.dataManButton.clicked.connect(self.datamanage)
 
         self.socketCheck()
         self.userLoginFunc()
@@ -224,15 +222,13 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, '提示', '只有管理员身份才能进入该界面', QMessageBox.Yes)
 
 
-
-
-
-
-
-
-
-
-
+        #数据管理操作
+    def datamanage(self):
+        if self.auth == 1 :
+            self.dataman = dataManage()
+            self.dataman.show()
+        else :
+            QMessageBox.warning(self, '提示', '只有管理员身份才能进入该界面', QMessageBox.Yes)
 
 
 if __name__ == '__main__':

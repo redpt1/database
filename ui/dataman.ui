@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dataMan</class>
+ <widget class="QWidget" name="dataMan">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>808</width>
+    <height>717</height>
+   </rect>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::NoContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>登录</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*{
+                font-size:24px;
+                font-family:sans-serif;
+                }
+                Form{
+                background-color:white;
+                }
+                QFrame{
+                background:rgba(0,0,0,0.8);
+                border-radius:15px;
+                }
+                QPushButton{
+                background:#03a9f4;
+                color:#fff;
+                border-radius:15px;
+                }
+                QLineEdit{
+                border-radius:15px;
+                color:#03a9f4;
+                }
+                QLabel{
+                color:#fff;
+                background:transparent;
+                font-size:30px;
+                }
+            </string>
+  </property>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>60</y>
+     <width>191</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>数据管理</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>170</y>
+     <width>711</width>
+     <height>481</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>数据导入</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="dataIn">
+          <property name="styleSheet">
+           <string notr="true">border-radius:5px;
+border:2px groove gray;
+</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>网络配置导入</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>KPI指标信息导入</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>PRB干扰信息导入</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>MRO数据导入</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>数据导出</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="dataOut">
+          <property name="styleSheet">
+           <string notr="true">border-radius:5px;
+border:2px groove gray;
+</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>导入地址</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="infileaddr"/>
+        </item>
+        <item>
+         <widget class="QToolButton" name="infileButton">
+          <property name="text">
+           <string>...</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="inButton">
+          <property name="styleSheet">
+           <string notr="true">border-radius:5px;
+border:2px groove gray;
+</string>
+          </property>
+          <property name="text">
+           <string>导入</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>导出地址</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="outfileaddr"/>
+        </item>
+        <item>
+         <widget class="QToolButton" name="outfileButton">
+          <property name="text">
+           <string>...</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="outButton">
+          <property name="styleSheet">
+           <string notr="true">border-radius:5px;
+border:2px groove gray;
+</string>
+          </property>
+          <property name="text">
+           <string>导出</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
