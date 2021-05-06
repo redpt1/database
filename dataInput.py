@@ -82,7 +82,7 @@ def tbKPI_cleaning(excel_file):
     std_type = sh.row_types(1)
     num = 0
 
-def tbCell_cleaning(excel_file):
+def tbCell_cleaning(excel_file,tablename):
     book = xlrd.open_workbook(excel_file)
     sh = book.sheets()[0]
     db = mysql_link()
@@ -93,7 +93,7 @@ def tbCell_cleaning(excel_file):
     std_type = sh.row_types(1)
     num = 0
 
-    sql = sql_assemble(std_type, "`tbCell`", sh.row_values(0))
+    sql = sql_assemble(std_type, '`'+tablename+'`', sh.row_values(0))
     for i in range(1, rnum):
         row_data = sh.row_values(i)
         flag = type_judge(sh.row_types(i), std_type, sh.row_len(i),i)

@@ -29,6 +29,8 @@ class pWindow(QWidget):
             self.timer.stop()
         else:
             self.timer.start(100, self)
+
+
 if __name__ == '__main__':
     myapp = QApplication(sys.argv)
     window = pWindow()

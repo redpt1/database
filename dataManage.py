@@ -2,7 +2,7 @@
 from PySide2.QtWidgets import *
 from PySide2.QtCore import *
 from ui.dataman import Ui_dataMan
-
+import dataInput
 import sqlConnect
 import xlwt
 import os
@@ -94,12 +94,12 @@ class dataManage(QWidget):
         self.dbName = self.getDbname() # 选择的表名
 
 
-        '''
+
         if type == 0: # 	网络配置信息导入
-        
-        
-        
-        
+            dataInput.tbCell_cleaning(self.inaddr,tablename=self.dbName)
+
+
+        '''
         elif type == 1: #  	KPI指标信息导入
         
         
