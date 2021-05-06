@@ -1,8 +1,5 @@
 from PySide2.QtWidgets import *
-from PySide2.QtGui import *
-from PySide2.QtCore import *
-from ui.userman import Ui_userMan
-import userSocket
+import sqlConnect
 
 from configmodify import Ui_MODIFY
 
@@ -17,7 +14,10 @@ class SYSMODIFY(QWidget):
         self.buffersize = ''
 
 
+
     def commit(self):
+        db = sqlConnect.connectdb()
+        cursor = db.cursor()
         self.connecttime = self.ui.lineEdit.text()
         self.buffersize = self.ui.lineEdit_2.text()
 
@@ -45,11 +45,11 @@ class SYSMODIFY(QWidget):
         else:
             if len(self.connecttime) != 0:
                 execute = 'set global wait_timeout ='+str(self.connecttime)
-                userSocket.cursor.execute(execute)
+                cursor.execute(execute)
 
             if len(self.buffersize) != 0:
                 execute = 'set global key_buffer_size ='+str(self.buffersize)
-                userSocket.cursor.execute(execute)
+                cursor.execute(execute)
 
             QMessageBox.information(
                 self,
@@ -57,3 +57,5 @@ class SYSMODIFY(QWidget):
                 '数据库配置修改成功',
                 QMessageBox.Yes, QMessageBox.Yes
             )
+            cursor.close()
+            db.close()

@@ -25,11 +25,9 @@ class MainWindow(QMainWindow):
         self.authstr = ''
         self.userId = ''  #账号
         self.passWrd= ''  #密码
-        #self.serverSocket = userSocket.serverSocket #信息传输socket
         self.seInfoSocket = userSocket.seInfoSocket #验证信息端口
         self.userinfo = userInfo()
         self.dataman = dataManage()
-
         self.sysman = SYSManage()
 
 
@@ -39,7 +37,6 @@ class MainWindow(QMainWindow):
         self.ui.actionhelp.triggered.connect(self.programHelp)
         self.ui.userManButton.clicked.connect(self.usermanage)
         self.ui.dataManButton.clicked.connect(self.datamanage)
-
         self.ui.sysManButton.clicked.connect(self.sysmanshow)
 
         self.socketCheck()
@@ -47,8 +44,9 @@ class MainWindow(QMainWindow):
 
     def socketCheck(self):
         try:
-            #self.serverSocket.connect(('10.128.246.121', 1081))
-            self.seInfoSocket.connect(('10.128.246.121', 1082))
+            #self.serverSocket.connect(('10.128.235.134', 1081))
+            '''修改连接ip '''
+            self.seInfoSocket.connect(('10.128.235.134', 1082))
             return True
         except socket.error as e:
             QMessageBox.warning(self, '警告', '请检测网络连接', QMessageBox.Yes)
