@@ -1,8 +1,7 @@
 from PySide2.QtWidgets import *
-from PySide2.QtGui import *
-from PySide2.QtCore import *
 from ui.login import Ui_Form
 from ui.sign import Ui_sign
+
 
 class LoginWindow(QWidget):
 
@@ -18,3 +17,5 @@ class SignWindow(QWidget):
         super().__init__()
         self.ui = Ui_sign()
         self.ui.setupUi(self)
+
+

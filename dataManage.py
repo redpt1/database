@@ -1,13 +1,19 @@
 # # 用户管理界面（只有管理员权限才能进入）
+import time
+
 from PySide2.QtWidgets import *
 from PySide2.QtCore import *
+
+import progressWindow
+
 from ui.dataman import Ui_dataMan
+
 import dataInput
 import sqlConnect
 import xlwt
 import os
 import numpy as np
-
+import threading
 
 class dataManage(QWidget):
 
@@ -16,20 +22,20 @@ class dataManage(QWidget):
         self.ui = Ui_dataMan()
         self.ui.setupUi(self)
 
-        # self.sSocket =   # 数据库连接口
-
         self.message = QWidget()
 
         self.inaddr = ''
         self.outaddr = ''
         self.name = '' #自定义文件名
+
         self.ui.infileButton.clicked.connect(self.getfileAddr)
         self.ui.outfileButton.clicked.connect(self.savefileAddr)
         self.ui.inButton.clicked.connect(self.fileIn)
         self.ui.outButton.clicked.connect(self.fileOut)
 
-        ##
 
+
+        ##
         sql = 'show tables'
         self.db = sqlConnect.connectdb()
         self.cursor = self.db.cursor()
@@ -84,8 +90,8 @@ class dataManage(QWidget):
 
     # 数据导入
     def fileIn(self):
+
         type = self.ui.dataIn.currentIndex()
-        print(type)
         self.inaddr = self.ui.infileaddr.text()
         if len(self.inaddr) == 0:
             QMessageBox.warning(self.message, '提示', '导入失败，请选择有效地址', QMessageBox.Yes)
@@ -96,21 +102,28 @@ class dataManage(QWidget):
 
 
         if type == 0: # 	网络配置信息导入
-            dataInput.tbCell_cleaning(self.inaddr,tablename=self.dbName)
+            self.pg = progressWindow.PWindow()
+            self.pg.timer.start(100, self.pg)
+            t2 = threading.Thread(target=dataInput.tbCell_cleaning, args=(self.inaddr,))
+            t2.start()
 
 
-        '''
         elif type == 1: #  	KPI指标信息导入
-        
+            self.pg = progressWindow.PWindow()
+            self.pg.timer.start(100, self.pg)
+            t2 = threading.Thread(target=dataInput.tbKPI_cleaning, args=(self.inaddr,))
+            t2.start()
         
         elif type == 2: #	PRB干扰信息导入
-        
+            self.pg = progressWindow.PWindow()
+            self.pg.timer.start(100, self.pg)
+            t2 = threading.Thread(target=dataInput.tbPRB_cleaning, args=(self.inaddr,))
+            t2.start()
         
         elif type == 3:#	MRO数据导入
+            QMessageBox.warning(self.message, '提示', '已经导入', QMessageBox.Yes)
+            return
         
-        
-            '''
-
 
 
     #自定义文件名称框

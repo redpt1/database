@@ -1,39 +1,42 @@
-
-from PySide2.QtWidgets import *
-from PySide2.QtCore import QBasicTimer
+from PySide2 import QtWidgets
 import sys
-class pWindow(QWidget):
+from PySide2.QtCore import *
+from PySide2.QtWidgets import *
+import dataInput
 
+class PWindow(QWidget):
     def __init__(self):
-        super().__init__()
+        super(PWindow, self).__init__()
         self.initUI()
-
     def initUI(self):
+        self.setWindowTitle("导入进度")
+        self.setGeometry(300,100,300,150)
+        #载入进度条控件
+        self.pgb=QProgressBar(self)
+        self.pgb.move(50,50)
+        self.pgb.resize(200,20)
 
-        self.pbar = QProgressBar(self)
-        self.pbar.setGeometry(30, 40, 200, 25)
-        self.timer = QBasicTimer()
-        self.step = 0
-        self.setGeometry(300, 300, 280, 170)
-        self.setWindowTitle('导入进度')
+        #配置一个值表示进度条的当前进度
+        self.pv=0
+
+        #申明一个时钟控件
+        self.timer=QBasicTimer()
+
+        #设置进度条的范围
+        self.pgb.setMinimum(0)
+        self.pgb.setMaximum(100)
+        self.pgb.setValue(self.pv)
+
         self.show()
-        self.doAction()
 
-    def timerEvent(self, e):
-        self.step = self.step + 1
-        self.pbar.setValue(self.step)
 
-    def doAction(self):
-        print("do action")
-        if self.timer.isActive():
+
+    def timerEvent(self,e):
+        if self.pv == 100:
             self.timer.stop()
+            self.close()
+
         else:
-            self.timer.start(100, self)
-
-
-if __name__ == '__main__':
-    myapp = QApplication(sys.argv)
-    window = pWindow()
-    window.show()
-
+            self.pv=(dataInput.i/dataInput.rnum)*100
+            self.pgb.setValue(self.pv)
 

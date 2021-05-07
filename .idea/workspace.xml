@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35933b93-a321-44b7-84a3-f4dd0756aefd" name="Default Changelist" comment="Default Changelist">
+      <change afterPath="$PROJECT_DIR$/log_tbcell.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tbPRB.xls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataInput.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataInput.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataManage.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataManage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/loginClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progressWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/progressWindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tbCell.xls" beforeDir="false" afterPath="$PROJECT_DIR$/tbCell.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tbKPI.xls" beforeDir="false" afterPath="$PROJECT_DIR$/tbKPI.xls" afterDir="false" />
     </list>
     <list id="5350c637-8c76-48da-ba70-ce018be9d98b" name="youedu 进行的更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -151,6 +157,9 @@
       <module name="socketqq" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -224,7 +233,9 @@
       <workItem from="1619341952048" duration="13989000" />
       <workItem from="1619941691244" duration="3751000" />
       <workItem from="1620286175716" duration="54000" />
-      <workItem from="1620286238944" duration="13177000" />
+      <workItem from="1620286238944" duration="22531000" />
+      <workItem from="1620354548607" duration="8945000" />
+      <workItem from="1620387744790" duration="1413000" />
     </task>
     <servers />
   </component>
@@ -250,7 +261,7 @@
     <SUITE FILE_PATH="coverage/QO$main.coverage" NAME="main 覆盖结果" MODIFIED="1618931991693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/QO$text.coverage" NAME="text 覆盖结果" MODIFIED="1618933871794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/database$text.coverage" NAME="mainfuction 覆盖结果" MODIFIED="1619248104816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/database$mainfuction.coverage" NAME="mainfuction 覆盖结果" MODIFIED="1620300997841" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/database$mainfuction.coverage" NAME="mainfuction 覆盖结果" MODIFIED="1620389023880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/database$main.coverage" NAME="main 覆盖结果" MODIFIED="1619174094409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
