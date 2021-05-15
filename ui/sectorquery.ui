@@ -68,7 +68,11 @@
      </widget>
     </item>
     <item>
-     <widget class="QListView" name="listView"/>
+     <widget class="QTableView" name="tableView">
+      <property name="styleSheet">
+       <string notr="true">background:#fff;</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -106,7 +110,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QComboBox" name="userAuth">
+       <widget class="QComboBox" name="sectorList">
         <property name="styleSheet">
          <string notr="true">border-radius:5px;
 border:2px groove gray;

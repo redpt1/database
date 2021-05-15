@@ -23,7 +23,7 @@ class Ui_sector(object):
             sector.setObjectName(u"sector")
         sector.setWindowModality(Qt.NonModal)
         sector.setEnabled(True)
-        sector.resize(827, 714)
+        sector.resize(870, 714)
         sector.setContextMenuPolicy(Qt.NoContextMenu)
         sector.setStyleSheet(u"*{\n"
 "                font-size:24px;\n"
@@ -56,7 +56,6 @@ class Ui_sector(object):
         pix = pix.scaled(sector.width(), sector.height())
         palette.setBrush(QPalette.Background, QBrush(pix))
         sector.setPalette(palette)
-        
 
         self.layoutWidget = QWidget(sector)
         self.layoutWidget.setObjectName(u"layoutWidget")
@@ -69,14 +68,15 @@ class Ui_sector(object):
 
         self.verticalLayout_5.addWidget(self.label)
 
-        self.listView = QListView(self.layoutWidget)
-        self.listView.setObjectName(u"listView")
-        self.listView.setStyleSheet(u"background:#fff")
-        self.verticalLayout_5.addWidget(self.listView)
+        self.tableView = QTableView(self.layoutWidget)
+        self.tableView.setObjectName(u"tableView")
+        self.tableView.setStyleSheet(u"background:#fff;")
+
+        self.verticalLayout_5.addWidget(self.tableView)
 
         self.layoutWidget1 = QWidget(sector)
         self.layoutWidget1.setObjectName(u"layoutWidget1")
-        self.layoutWidget1.setGeometry(QRect(438, 81, 381, 261))
+        self.layoutWidget1.setGeometry(QRect(438, 81, 410, 261))
         self.verticalLayout_3 = QVBoxLayout(self.layoutWidget1)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
@@ -107,6 +107,7 @@ class Ui_sector(object):
         self.sectorList.setStyleSheet(u"border-radius:5px;\n"
 "border:2px groove gray;\n"
 "")
+        self.sectorList.setStyleSheet(u"background:#fff")
 
         self.horizontalLayout.addWidget(self.sectorList)
 
@@ -126,7 +127,7 @@ class Ui_sector(object):
     # setupUi
 
     def retranslateUi(self, sector):
-        sector.setWindowTitle(QCoreApplication.translate("sector", u"小区信息", None))
+        sector.setWindowTitle(QCoreApplication.translate("sector", u"小区信息查询", None))
         self.label.setText(QCoreApplication.translate("sector", u"\u5c0f\u533a\u8be6\u7ec6\u4fe1\u606f", None))
         self.label_4.setText(QCoreApplication.translate("sector", u"\u5c0f\u533a\u540d\u79f0/ID\uff1a  ", None))
         self.label_3.setText(QCoreApplication.translate("sector", u"\u5c0f\u533a\u5217\u8868\uff1a", None))
