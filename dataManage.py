@@ -1,8 +1,8 @@
 # # 用户管理界面（只有管理员权限才能进入）
-import time
+
 
 from PySide2.QtWidgets import *
-from PySide2.QtCore import *
+
 
 import progressWindow
 
@@ -113,7 +113,9 @@ class dataManage(QWidget):
             self.pg.timer.start(100, self.pg)
             t2 = threading.Thread(target=dataInput.tbKPI_cleaning, args=(self.inaddr,))
             t2.start()
-        
+
+
+
         elif type == 2: #	PRB干扰信息导入
             self.pg = progressWindow.PWindow()
             self.pg.timer.start(100, self.pg)
@@ -123,7 +125,7 @@ class dataManage(QWidget):
         elif type == 3:#	MRO数据导入
             QMessageBox.warning(self.message, '提示', '已经导入', QMessageBox.Yes)
             return
-        
+
 
 
     #自定义文件名称框

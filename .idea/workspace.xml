@@ -5,15 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35933b93-a321-44b7-84a3-f4dd0756aefd" name="Default Changelist" comment="Default Changelist">
-      <change afterPath="$PROJECT_DIR$/log_tbcell.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tbPRB.xls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/queryManage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/secQuery.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tbCell1.xls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/query.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/query.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/sectorquery.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/sectorquery.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataInput.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataInput.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataManage.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataManage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/loginClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log_tbcell.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log_tbcell.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainfuction.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainfuction.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/progressWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/progressWindow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tbCell.xls" beforeDir="false" afterPath="$PROJECT_DIR$/tbCell.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tbKPI.xls" beforeDir="false" afterPath="$PROJECT_DIR$/tbKPI.xls" afterDir="false" />
     </list>
     <list id="5350c637-8c76-48da-ba70-ce018be9d98b" name="youedu 进行的更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +56,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/ui" />
@@ -235,7 +241,10 @@
       <workItem from="1620286175716" duration="54000" />
       <workItem from="1620286238944" duration="22531000" />
       <workItem from="1620354548607" duration="8945000" />
-      <workItem from="1620387744790" duration="1413000" />
+      <workItem from="1620387744790" duration="1872000" />
+      <workItem from="1620477457889" duration="12000" />
+      <workItem from="1621001530936" duration="714000" />
+      <workItem from="1621047247788" duration="11371000" />
     </task>
     <servers />
   </component>
@@ -261,7 +270,7 @@
     <SUITE FILE_PATH="coverage/QO$main.coverage" NAME="main 覆盖结果" MODIFIED="1618931991693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/QO$text.coverage" NAME="text 覆盖结果" MODIFIED="1618933871794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/database$text.coverage" NAME="mainfuction 覆盖结果" MODIFIED="1619248104816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/database$mainfuction.coverage" NAME="mainfuction 覆盖结果" MODIFIED="1620389023880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/database$mainfuction.coverage" NAME="mainfuction 覆盖结果" MODIFIED="1621060108801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/database$main.coverage" NAME="main 覆盖结果" MODIFIED="1619174094409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
