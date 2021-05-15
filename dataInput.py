@@ -11,7 +11,7 @@ import sys
 
 
 i = 0
-rnum = 1
+rnum = 0
 
 
 def mysql_link():
@@ -31,7 +31,7 @@ def type_judge(data, stdtype, row):
             if i>=4 and data[i]==1:
                 continue
             else:
-                print("第%s列第%s行出现格式错误，预期是%s，实际输入%s" % (i,row,stdtype[i],data[i]))
+                #print("第%s列第%s行出现格式错误，预期是%s，实际输入%s" % (i,row,stdtype[i],data[i]))
                 flag = 0
     return flag
 
@@ -42,7 +42,7 @@ def type_judgetb(data, stdtype, row):
         if data[i] == stdtype[i]:
             continue
         else:
-            print("第%s列第%s行出现格式错误，预期是%s，实际输入%s" % (i,row,stdtype[i],data[i]))
+            #print("第%s列第%s行出现格式错误，预期是%s，实际输入%s" % (i,row,stdtype[i],data[i]))
             flag = 0
     return flag
 
@@ -75,6 +75,7 @@ def tbCell_cleaning(excel_file):
     log = open('log_tbcell.txt', mode='w')
 
     sql = sql_assemble(std_type, "`tbCell`", sh.row_values(0))
+
     for i in range(1, rnum):
         row_data = sh.row_values(i)
         flag = type_judgetb(sh.row_types(i), std_type, i)
@@ -106,8 +107,11 @@ def tbCell_cleaning(excel_file):
             list.clear()
             num=0
             db.commit()
+
     cursor.executemany(sql,list)
     #print("插入剩余不足1000条的数据，到%s"%i)
+    db.commit()
+
     cursor.close()
     log.close()
     cursor2.close()
@@ -164,6 +168,7 @@ def  tbKPI_cleaning(excel_file):
             db.commit()
     cursor.executemany(sql, list)
     #print("插入剩余不足100条的数据，到%s" % i)
+    db.commit()
     cursor.close()
     log.close()
     cursor2.close()
@@ -195,23 +200,24 @@ def tbPRB_cleaning(excel_file):
             check = cursor2.fetchone()
             db.commit()
             if check != None:
-                print("发现重复：%s（第%d行）" % (sh.row_values(i), i))
+                #print("发现重复：%s（第%d行）" % (sh.row_values(i), i))
                 rep_delete = "DELETE FROM `tbPRB` WHERE `起始时间`='%s' AND `小区名`='%s'" % (
                 sh.row_values(i)[0], sh.row_values(i)[3])
                 cursor.execute(rep_delete)
                 db.commit()
-                print("删除重复完成")
+                #print("删除重复完成")
             rdata = tuple(row_data)
             list.append(rdata)
             num += 1
         if num >= 10000:
-            print("插入10000条数据，到%s" % i)
+            #print("插入10000条数据，到%s" % i)
             cursor.executemany(sql, list)
             list.clear()
             num = 0
             db.commit()
     cursor.executemany(sql, list)
-    print("插入剩余不足10000条的数据，到%s" % i)
+    #print("插入剩余不足10000条的数据，到%s" % i)
+    db.commit()
     cursor.close()
     cursor2.close()
     db.close()

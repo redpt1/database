@@ -8,7 +8,7 @@ from ui.fuction import Ui_fuction
 from userManage import userInfo
 from dataManage import dataManage
 from SYSManage import SYSManage
-
+from queryManage import queryManage
 
 import socket
 import sys
@@ -38,9 +38,19 @@ class MainWindow(QMainWindow):
         self.ui.userManButton.clicked.connect(self.usermanage)
         self.ui.dataManButton.clicked.connect(self.datamanage)
         self.ui.sysManButton.clicked.connect(self.sysmanshow)
+        self.ui.busSearchButton.clicked.connect(self.queryshow)
+
+
 
         self.socketCheck()
         self.userLoginFunc()
+
+
+    def queryshow(self):
+        self.query = queryManage()
+        self.query.show()
+
+
 
     def socketCheck(self):
         try:
@@ -123,7 +133,7 @@ class MainWindow(QMainWindow):
             userInfo = 'mmt@' + userId + ',' + passWrd  # 加入密码头
             self.seInfoSocket.send(userInfo.encode('gbk'))
             userState = self.seInfoSocket.recv(7).decode('gbk')
-            print(userState)
+            #print(userState)
             if userState == 'mmt@OK1':
                 QMessageBox.information(self, '欢迎', '管理员,您可以对用户进行注册注销操作', QMessageBox.Yes)
                 self.userId = userId
@@ -151,7 +161,7 @@ class MainWindow(QMainWindow):
             siuserInfo = 'zc@' + siuserId + ',' + sipassWrd # 加入注册头和绑定本机ip
             self.seInfoSocket.send(siuserInfo.encode('gbk'))
             siuserState = self.seInfoSocket.recv(5).decode('gbk')
-            print(siuserState)
+            #print(siuserState)
             if siuserState == 'zc@OK':
                 QMessageBox.information(self, '提示', '注册成功', QMessageBox.Yes)
                 self.sign.close()
@@ -172,7 +182,7 @@ class MainWindow(QMainWindow):
             deluserInfo = 'del@' + deluserId + ',' + delpassWrd  # 加入注册头和绑定本机ip
             self.seInfoSocket.send(deluserInfo.encode('gbk'))
             deluserState = self.seInfoSocket.recv(6).decode('gbk')
-            print(deluserState)
+            #print(deluserState)
             if deluserState == 'del@OK':
                 QMessageBox.information(self, '提示', '成功注销用户', QMessageBox.Yes)
                 self.sign.close()
@@ -202,7 +212,7 @@ class MainWindow(QMainWindow):
             userInfo ='mmt@'+userId +','+ passWrd #加入密码头
             self.seInfoSocket.send(userInfo.encode('gbk'))
             userState = self.seInfoSocket.recv(7).decode('gbk')
-            print(userState)
+            #print(userState)
             if userState =='mmt@OK1'  :
                 QMessageBox.information(self, '欢迎', '您好，管理员', QMessageBox.Yes)
                 self.userId = userId
