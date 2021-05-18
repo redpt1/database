@@ -4,7 +4,7 @@ from ui.query import Ui_query
 from secQuery import secQuery
 from enoQuery import enoQuery
 from kpiQuery import kpiQuery
-
+from prbQuery import prbQuery
 class queryManage(QWidget):
 
     def __init__(self):
@@ -15,7 +15,7 @@ class queryManage(QWidget):
         self.ui.sectorButton.clicked.connect(self.sectorQuery)
         self.ui.enodeButton.clicked.connect(self.enodeQuery)
         self.ui.kpiButton.clicked.connect(self.kpQuery)
-
+        self.ui.prbButton.clicked.connect(self.prQuery)
 
     def sectorQuery(self):
         self.sector=secQuery()
@@ -28,3 +28,7 @@ class queryManage(QWidget):
     def kpQuery(self):
         self.kpi = kpiQuery()
         self.kpi.show()
+
+    def prQuery(self):
+        self.prb = prbQuery()
+        self.prb.show()

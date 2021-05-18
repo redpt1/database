@@ -5,14 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35933b93-a321-44b7-84a3-f4dd0756aefd" name="Default Changelist" comment="Default Changelist">
-      <change afterPath="$PROJECT_DIR$/kpiQuery.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log_tbKPI.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/kpiquery.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/kpiquery.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Output.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prbQuery.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/output.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/output.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/prbquery.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/prbquery.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataInput.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataInput.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kpiQuery.py" beforeDir="false" afterPath="$PROJECT_DIR$/kpiQuery.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/queryManage.py" beforeDir="false" afterPath="$PROJECT_DIR$/queryManage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tbCell.xls" beforeDir="false" afterPath="$PROJECT_DIR$/tbCell.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tbCell1.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/kpiquery.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/kpiquery.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/kpiquery.ui" beforeDir="false" afterPath="$PROJECT_DIR$/ui/kpiquery.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,28 +112,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="socketqq" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="mainfuction" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="socketqq" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -196,13 +178,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="socketqq" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.mainfuction" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.progressWindow" />
         <item itemvalue="Python.dataInput" />
         <item itemvalue="Python.sqlConnect" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -239,6 +240,9 @@
       <workItem from="1621001530936" duration="714000" />
       <workItem from="1621047247788" duration="20408000" />
       <workItem from="1621168059633" duration="4915000" />
+      <workItem from="1621173587490" duration="117000" />
+      <workItem from="1621245491688" duration="13679000" />
+      <workItem from="1621303357095" duration="27226000" />
     </task>
     <servers />
   </component>
@@ -264,7 +268,7 @@
     <SUITE FILE_PATH="coverage/QO$main.coverage" NAME="main 覆盖结果" MODIFIED="1618931991693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/QO$text.coverage" NAME="text 覆盖结果" MODIFIED="1618933871794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/database$text.coverage" NAME="mainfuction 覆盖结果" MODIFIED="1619248104816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/database$mainfuction.coverage" NAME="mainfuction 覆盖结果" MODIFIED="1621173339401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/database$mainfuction.coverage" NAME="mainfuction 覆盖结果" MODIFIED="1621339365979" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/database$main.coverage" NAME="main 覆盖结果" MODIFIED="1619174094409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
