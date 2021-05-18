@@ -97,6 +97,7 @@ def tbCell_cleaning(excel_file):
                     cursor.execute(rep_delete)
                     db.commit()
                     #print("删除重复完成")
+                row_data[3] = int(row_data[3])
                 row_data[3]=str(row_data[3])
                 rdata = tuple(row_data)
                 list.append(rdata)
