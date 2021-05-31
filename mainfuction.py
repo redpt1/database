@@ -5,14 +5,14 @@ from PySide2.QtCore import *
 from loginClass import LoginWindow
 from loginClass import SignWindow
 from ui.fuction import Ui_fuction
-from userManage import userInfo
-from dataManage import dataManage
-from SYSManage import SYSManage
-from queryManage import queryManage
-
+from user.userManage import userInfo
+from data.dataManage import dataManage
+from system.SYSManage import SYSManage
+from search.queryManage import queryManage
+from analysis.analyzeManage import analyzeManage
 import socket
 import sys
-import userSocket
+import user.userSocket
 
 class MainWindow(QMainWindow):
 
@@ -25,11 +25,11 @@ class MainWindow(QMainWindow):
         self.authstr = ''
         self.userId = ''  #账号
         self.passWrd= ''  #密码
-        self.seInfoSocket = userSocket.seInfoSocket #验证信息端口
+        self.seInfoSocket = user.userSocket.seInfoSocket #验证信息端口
         self.userinfo = userInfo()
         self.dataman = dataManage()
         self.sysman = SYSManage()
-
+        self.analman = analyzeManage()
 
         # 信号与槽
         self.ui.actionexit.triggered.connect(self.systemQuitFunc)
@@ -39,11 +39,14 @@ class MainWindow(QMainWindow):
         self.ui.dataManButton.clicked.connect(self.datamanage)
         self.ui.sysManButton.clicked.connect(self.sysmanshow)
         self.ui.busSearchButton.clicked.connect(self.queryshow)
-
-
+        self.ui.busAnaButton.clicked.connect(self.analshow)
 
         self.socketCheck()
         self.userLoginFunc()
+
+    def analshow(self):
+        self.analman = analyzeManage()
+        self.analman.show()
 
 
     def queryshow(self):
@@ -54,9 +57,7 @@ class MainWindow(QMainWindow):
 
     def socketCheck(self):
         try:
-            #self.serverSocket.connect(('10.128.235.134', 1081))
-            '''修改连接ip '''
-            self.seInfoSocket.connect(('10.128.235.134', 1082))
+            self.seInfoSocket.connect(('10.128.243.79', 1082))
             return True
         except socket.error as e:
             QMessageBox.warning(self, '警告', '请检测网络连接', QMessageBox.Yes)

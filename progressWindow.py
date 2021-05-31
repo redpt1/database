@@ -1,6 +1,6 @@
 from PySide2.QtCore import *
 from PySide2.QtWidgets import *
-import dataInput
+import data.dataInput
 
 class PWindow(QWidget):
     def __init__(self):
@@ -35,10 +35,12 @@ class PWindow(QWidget):
             self.close()
             QMessageBox.information(self, '提示', '导入完成', QMessageBox.Yes)
         else:
-            if(dataInput.rnum==0) :
+            if(data.dataInput.rnum==0) :
                 self.pv = 0
                 self.pgb.setValue(self.pv)
+
             else :
-                self.pv=(dataInput.i/(dataInput.rnum-1))*100
+                self.pv=(data.dataInput.i/(data.dataInput.rnum-1))*100
                 self.pgb.setValue(self.pv)
+
 
