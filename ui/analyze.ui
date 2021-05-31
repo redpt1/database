@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>analyze</class>
+ <widget class="QWidget" name="analyze">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>490</width>
+    <height>554</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <widget class="QFrame" name="frame">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+       <horstretch>50</horstretch>
+       <verstretch>50</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background:rgba(0,0,0,0.8);
+border-radius:15px;
+padding:2px 4px;
+border:2px;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>10</y>
+        <width>200</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:#fff;
+background:transparent;
+font-size:30px;</string>
+      </property>
+      <property name="text">
+       <string>分析功能界面</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>90</y>
+        <width>339</width>
+        <height>371</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPushButton" name="c2lButton">
+         <property name="styleSheet">
+          <string notr="true">border:2px groove gray;
+padding:2px 4px;
+color:#fff;
+border-radius:5px;
+background:#03a9f4;
+font-size:25px;</string>
+         </property>
+         <property name="text">
+          <string>主邻小区C2I干扰分析</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="sectorButton">
+         <property name="styleSheet">
+          <string notr="true">border:2px groove gray;
+padding:2px 4px;
+color:#fff;
+border-radius:5px;
+background:#03a9f4;
+font-size:25px;</string>
+         </property>
+         <property name="text">
+          <string>重叠覆盖干扰小区分析</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="netButton">
+         <property name="styleSheet">
+          <string notr="true">border:2px groove gray;
+padding:2px 4px;
+color:#fff;
+border-radius:5px;
+background:#03a9f4;
+font-size:25px;</string>
+         </property>
+         <property name="text">
+          <string>网络干扰结构分析</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

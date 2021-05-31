@@ -17,10 +17,10 @@ class Ui_output(object):
     def setupUi(self, output):
         if not output.objectName():
             output.setObjectName(u"output")
-        output.resize(504, 436)
+        output.resize(850, 650)
         self.outButton = QPushButton(output)
         self.outButton.setObjectName(u"outButton")
-        self.outButton.setGeometry(QRect(350, 370, 93, 28))
+        self.outButton.setGeometry(QRect(751, 600, 93, 28))
         self.chart = QWidget(output)
         self.chart.setObjectName(u"chart")
         self.chart.setGeometry(QRect(60, 20, 400, 300))
